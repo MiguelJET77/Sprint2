@@ -1,6 +1,4 @@
 void main() {
-  //print("oi mundo!");
-
   String nome = 'laranja';
   double peso = 100.2;
   String cor = 'verde e amarela';
@@ -14,21 +12,7 @@ void main() {
     isMadura = false;
   }
 
-  //print(isMadura);
-  //print(funcEstaMadura(50));
-
-  //mostrarMadura("Uva", 40);
-  /*mostrarMadura(
-    "Manga",
-    25,
-    cor: "vermelha por fora e amarela por dentro",
-  );*/
-  //mostrarMadura("Kiwi", 40);
-
-  /*mostrarMadura("Maçã", 29, contemagua: "Aproximadamente 85g de água");
-  int quantosDias = quantoParaAmadurecer(diasDesdeColheita);
-  print(quantosDias);*/
-
+  //Testando objeto e funções
   Fruta fruta01 = Fruta(nome, peso, cor, sabor, diasDesdeColheita);
   Fruta fruta02 = Fruta("Uva", 40, "Roxa", "Doce", 20);
 
@@ -63,7 +47,7 @@ class Fruta {
   }
 }
 
-quantoParaAmadurecer(int dias) {
+int quantoParaAmadurecer(int dias) {
   int diasParaAmadurecer = 10;
   int quantosDiasFaltam = dias - diasParaAmadurecer;
   return quantosDiasFaltam;
