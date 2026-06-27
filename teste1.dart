@@ -32,9 +32,12 @@ void main() {
   Limao1.printAlimento();
 
   mandioca1.cozinhar();
+
+  banana1.separarIngredientes();
+  macadamia1.fazerMassa();
 }
 
-class Fruta extends Alimento {
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int diasDesdeColheita;
   bool? isMadura;
@@ -58,6 +61,21 @@ class Fruta extends Alimento {
       print('Você fez um suco de $nome!');
     }
   }
+
+  @override
+  void separarIngredientes() {
+    print('Catar $nome');
+  }
+
+  @override
+  void fazerMassa() {
+    print('Misturar a fruta com os ingredientes de bolo');
+  }
+
+  @override
+  void assar() {
+    print('Colocar no forno');
+  }
 }
 
 class Alimento {
@@ -71,7 +89,7 @@ class Alimento {
   }
 }
 
-class Legumes extends Alimento {
+class Legumes extends Alimento implements Bolo {
   bool isPrecisaCozinhar;
 
   Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar)
@@ -84,6 +102,13 @@ class Legumes extends Alimento {
       print('Nem precisa cozinhar');
     }
   }
+
+  @override
+  void assar() {}
+  @override
+  void fazerMassa() {}
+  @override
+  void separarIngredientes() {}
 }
 
 class Citricas extends Fruta {
@@ -119,6 +144,18 @@ class Nozes extends Fruta {
     int diasDesdeColheita,
     this.porcentagemOleoNatural,
   ) : super(nome, peso, cor, sabor, diasDesdeColheita);
+
+  @override
+  void fazerMassa() {
+    print('Tirar a casca');
+    super.fazerMassa();
+  }
+}
+
+abstract class Bolo {
+  void separarIngredientes();
+  void fazerMassa();
+  void assar();
 }
 
 int quantoParaAmadurecer(int dias) {
